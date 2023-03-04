@@ -29,7 +29,7 @@ function triSER() {
       })
       .catch((error) => console.log(error));
   } else {
-    alert("<<Enter Auther Name or Book Title>>");
+    alert("Error:Please Fill Book or Author Name in search Box!!");
   }
 }
 // fetching date and time from localStorage
