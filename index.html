@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BookStore API</title>
+   
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+* {
+  background-color: black;
+  color: white;
+  padding: 0;
+  margin: 0;
+  font-family: "Inter", sans-serif;
+
+}
+
+.mainNAV {
+  border-bottom: 3px solid white;
+  padding: 20px;
+  background-color: black;
+  color: white;
+}
+.logo:hover{
+  color: aquamarine;
+  border-bottom: 2px solid aquamarine;
+}
+
+.search {
+  margin: 10px;
+}
+.search p {
+  margin: 10px 0px;
+}
+.search input {
+  padding: 10px;
+  margin: 10px 0px 10px 0px;
+  width: 99%;
+  height: 30px;
+  border: 2px solid white;
+
+}
+
+.btn1 {
+  height: 60px;
+  width: 100px;
+  padding: 7px;
+  color: black;
+  font-size: large;
+  background-color: white;
+}
+.btn1:hover{
+  border: 3px solid green;
+  color: green;
+}
+
+.btn2 {
+  width: 200px;
+  padding: 5px;
+  color: black;
+  align-items: center;
+  border-radius: 10px;
+  background-color: white;
+}
+#btndiv {
+  display: flex;
+  justify-content: space-between;
+}
+
+.h1 {
+  visibility: visible;
+  width: 100px;
+  height: 60px;
+  font-size: large;
+
+  padding: 7px;
+  color: black;
+  background-color: white;
+}
+.h1:hover{
+  border: 3px solid rgb(0, 132, 255);
+  color: rgb(0, 132, 255);
+}
+#clrHis22{
+  
+    height: 60px;
+    width: 100px;
+    padding: 7px;
+    color: black;
+    font-size: large;
+    background-color: white;
+  
+}
+#clrHis22:hover{
+  border: 3px solid red;
+  color: red;
+}
+
+.container {
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+ 
+}
+.container{
+  max-width: 255px;
+  padding: 10px;
+  border: 4px solid white;
+}
+.container:hover{
+  border:4px solid red;
+}
+.container div {
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  padding: 2px;
+}
+img {
+  object-fit: cover;
+  width: 100%;
+  height: 300px;
+}
+
+.op {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.opT {
+  display: none;
+}
+
+.mainBar {
+  display: flex;
+  justify-content: space-between;
+ 
+}
+
+.l1 {
+  gap: 1rem;
+  margin: 10px;
+}
+.l1 li {
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: space-between;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  border: 3px solid white;
+}
+.li1:hover{
+  border-radius: 5px red;
+}
+.mainBar{
+  padding: 10px;
+}
+
+    </style>
+  </head>
+  <body>
+   
+    <div class="mainNAV">
+      <p ><a href="index.html" style="text-decoration: none;" class="logo">Book store App🔍</a></p>
+    </div>
+    <div class="search">
+      <p>Search For Books By Their Name</p>
+  
+      <input type="text" class="searchII" name="sIP" id="sIP" placeholder="Search.............." />
+      <br />
+      <!-- search btn function call here , eventlistner will trigger -->
+      <div id="btndiv">
+        <button  class="btn btn1" onclick="triSER()">Search Now!</button>
+        <button  class="h1"  id="hisBtn" onclick="clMainO()">Search History</button>
+      </div>
+    </div>
+    <div class="opT" id="opTT1" style="margin-left: 10px;">Book Results For "
+      <span id="sOp1"> </span>" :-
+    </div>
+    <div class="op" id="opTT2">
+      <!-- info at here -->
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
+

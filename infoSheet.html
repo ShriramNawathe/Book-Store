@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Previous History</title>
+   
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+* {
+  background-color: black;
+  color: white;
+  padding: 0;
+  margin: 0;
+  font-family: "Inter", sans-serif;
+
+}
+
+.mainNAV {
+  border-bottom: 3px solid white;
+  padding: 20px;
+  background-color: black;
+  color: white;
+}
+.logo:hover{
+  color: aquamarine;
+  border-bottom: 2px solid aquamarine;
+}
+
+.search {
+  margin: 10px;
+}
+.search p {
+  margin: 10px 0px;
+}
+.search input {
+  padding: 10px;
+  margin: 10px 0px 10px 0px;
+  width: 99%;
+  height: 30px;
+  border: 2px solid white;
+
+}
+
+.btn1 {
+  height: 60px;
+  width: 100px;
+  padding: 7px;
+  color: black;
+  font-size: large;
+  background-color: white;
+}
+.btn1:hover{
+  border: 3px solid green;
+  color: green;
+}
+
+.btn2 {
+  width: 200px;
+  padding: 5px;
+  color: black;
+  align-items: center;
+  border-radius: 10px;
+  background-color: white;
+}
+#btndiv {
+  display: flex;
+  justify-content: space-between;
+}
+
+.h1 {
+  visibility: visible;
+  width: 100px;
+  height: 60px;
+  font-size: large;
+
+  padding: 7px;
+  color: black;
+  background-color: white;
+}
+.h1:hover{
+  border: 3px solid rgb(0, 132, 255);
+  color: rgb(0, 132, 255);
+}
+#clrHis22{
+  
+    height: 60px;
+    width: 100px;
+    padding: 7px;
+    color: black;
+    font-size: large;
+    background-color: white;
+  
+}
+#clrHis22:hover{
+  border: 3px solid red;
+  color: red;
+}
+
+.container {
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+ 
+}
+.container{
+  max-width: 255px;
+  padding: 10px;
+  border: 4px solid white;
+}
+.container:hover{
+  border:4px solid red;
+}
+.container div {
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  padding: 2px;
+}
+img {
+  object-fit: cover;
+  width: 100%;
+  height: 300px;
+}
+
+.op {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.opT {
+  display: none;
+}
+
+.mainBar {
+  display: flex;
+  justify-content: space-between;
+ 
+}
+
+.l1 {
+  gap: 1rem;
+  margin: 10px;
+}
+.l1 li {
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: space-between;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  border: 3px solid white;
+}
+.li1:hover{
+  border-radius: 5px red;
+}
+.mainBar{
+  padding: 10px;
+}
+    </style>
+  </head>
+  <body>
+     <div class="mainNAV">
+      <p><a href="index.html" style="text-decoration: none;" class="logo">Book store App🔍</a></p>
+    </div>
+
+    <div class="mainBar">
+      <div>Your Previous Searches</div>
+      <div>
+     
+        <button class="btn btn1" id="clrHis22" onclick="clrOk()">Clear History</button>
+      </div>
+    </div>
+    <div class="historyList">
+      <ol class="l1 list" id="h">
+  
+      </ol>
+    </div>
+    <!-- <script src="history.js"></script> -->
+    <script>
+      var histroy = JSON.parse(localStorage.getItem("histroy") || "[]");
+var searched = JSON.parse(localStorage.getItem("searched") || "[]");
+var index = JSON.parse(localStorage.getItem("index") || "[]");
+
+infoHistroyData(histroy);
+
+function infoHistroyData(data) {
+  console.log(data);
+  var h = document.getElementById("h");
+  h.innerHTML = "";
+  for (let i = 0; i < data.length; i++) {
+    let item = `
+        <li onclick="searcheddata(${i})">
+        <div class="left">
+        ${i + 1}. ${data[i].text.toUpperCase()}
+        </div>
+        <div class="right">
+          Searched on: ${data[i].time}
+        </div>
+        </li>`;
+
+    h.innerHTML += item;
+  }
+}
+
+function searcheddata(i) {
+  console.log("clicked", i);
+  let click = {
+    ind: i,
+  };
+  index.push(click);
+  localStorage.setItem("index", JSON.stringify(index));
+
+  window.location.href = "./ok.html";
+}
+
+
+function clrOk(){
+  console.log("Clr Clicked");
+  localStorage.removeItem("searched");
+  localStorage.removeItem("index");
+  localStorage.removeItem("histroy");
+  location.reload();
+}
+
+    </script>
+  </body>
+</html>
